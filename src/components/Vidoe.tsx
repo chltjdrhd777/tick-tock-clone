@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
+import VideoFooter from "./VideoFooter";
 
 function Vidoe() {
   // == getElementById
@@ -31,7 +32,7 @@ function Vidoe() {
         onClick={videoPress}
         src="https://v16m.tiktokcdn.com/fcff165b739fb6b450b2fcbc3026adfd/5f3891bc/video/tos/alisg/tos-alisg-pv-0037/96e4a7a6c4f349f587e731144d89bbb1/?a=1180&br=5728&bt=2864&cr=0&cs=0&dr=3&ds=3&er=&l=202008140154030101152280781F29AB6B&lr=tiktok&mime_type=video_mp4&qs=13&rc=am47cmRseXI4djMzNzgzM0ApOjNtbWQ8M29xZTMzPDU6eWc0LWdnXjYtaWtfLS02LzRzc2RoNWxeZnNsMnAtLTEyLS06Yw%3D%3D&vl=&vr="
       />
-      {/* video footer */}
+      <VideoFooter />
       {/* videoSideBar */}
     </VideoContainerDiv>
   );
