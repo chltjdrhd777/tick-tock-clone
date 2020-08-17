@@ -6,12 +6,37 @@ import MessageIcon from "@material-ui/icons/Message";
 import ShareIcon from "@material-ui/icons/Share";
 
 function VideoSideBar() {
-  const [click, setClick] = useState();
+  const [liked, setLiked] = useState(false);
+  const [number, setNumber] = useState({
+    favorite: 300,
+    messages: 1000,
+    share: 230,
+  });
+
   return (
     <SideVarDiv>
       <IconContainer>
-        <FavoriteBorderIcon />
-        <p>1000</p>
+        {liked ? (
+          <>
+            <FavoriteIcon
+              onClick={() => {
+                setLiked(false);
+                setNumber({ ...number, favorite: number.favorite - 1 });
+              }}
+            />
+            <p>{number.favorite}</p>
+          </>
+        ) : (
+          <>
+            <FavoriteBorderIcon
+              onClick={() => {
+                setLiked(true);
+                setNumber({ ...number, favorite: number.favorite + 1 });
+              }}
+            />
+            <p>{number.favorite}</p>
+          </>
+        )}
       </IconContainer>
       <IconContainer>
         <MessageIcon />

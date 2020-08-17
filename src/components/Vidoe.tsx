@@ -3,7 +3,11 @@ import styled from "styled-components";
 import VideoSideBar from "./VideoSideBar";
 import VideoFooter from "./VideoFooter";
 
-function Vidoe() {
+interface VideoProps {
+  url?: string;
+}
+
+function Vidoe(props: VideoProps) {
   // == getElementById
   // useRef should be a null because the initial state before DOM is rendered refers to nothing at this juncture
 
@@ -14,7 +18,6 @@ function Vidoe() {
 
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  console.log(playing);
   const videoPress = () => {
     if (playing) {
       setPlaying(false);
@@ -27,12 +30,7 @@ function Vidoe() {
 
   return (
     <VideoContainerDiv>
-      <VideoPlayer
-        loop
-        ref={videoRef}
-        onClick={videoPress}
-        src="https://v16m.tiktokcdn.com/fcff165b739fb6b450b2fcbc3026adfd/5f3891bc/video/tos/alisg/tos-alisg-pv-0037/96e4a7a6c4f349f587e731144d89bbb1/?a=1180&br=5728&bt=2864&cr=0&cs=0&dr=3&ds=3&er=&l=202008140154030101152280781F29AB6B&lr=tiktok&mime_type=video_mp4&qs=13&rc=am47cmRseXI4djMzNzgzM0ApOjNtbWQ8M29xZTMzPDU6eWc0LWdnXjYtaWtfLS02LzRzc2RoNWxeZnNsMnAtLTEyLS06Yw%3D%3D&vl=&vr="
-      />
+      <VideoPlayer loop ref={videoRef} onClick={videoPress} src={props.url} />
 
       <VideoSideBar />
       <VideoFooter
